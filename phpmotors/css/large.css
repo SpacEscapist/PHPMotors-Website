@@ -1,0 +1,202 @@
+/* 640px screen = 40rem x 16px base */
+@media only screen and (min-width: 40rem) {
+
+    /*---------- BODY / FONTS ----------*/
+    body {
+        background-image: url("/phpmotors/images/site/small_check.jpg");
+    }
+
+    main h1 {
+        font-size: 1.5rem;
+    }
+
+    main h2 {
+        font-size: 1.2rem;
+    }
+
+    nav ul li {
+        font-size: 1rem;
+    }
+
+    .upgrade-container a {
+        font-size: 1rem;
+    }
+
+
+    /*------ SITE WRAPPER ------*/
+    body div.site-wrapper {
+        max-width: 70rem;
+        background-color: white;
+        border: 5px solid #4c96d7;
+        border-radius: 1rem;
+        width: 85%;
+        margin: 1rem auto;
+        overflow: hidden;
+    }
+
+
+    /*-------- HEADER --------- */
+    .account-login {
+        top: 2rem;
+        right: 2rem;
+    }
+
+    .account-login a {
+        font-size: 1.1rem;
+    }
+
+
+    /*------ NAVIGATION ------- */
+    nav ul li a {
+        padding: 1.2rem .7rem;
+    }
+
+
+    /*--------- MAIN --------- */
+    .hero-cta button {
+        margin-left: 0%;
+        transform: translateX(0%);
+    }
+
+    .hero-cta p {
+        position: static;
+    }
+
+    .hero-cta  {
+        position: absolute;
+        top: 0rem;
+        left: 2rem;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .grid-large-view {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2rem;
+        margin: 4rem 0;
+    }
+
+    .upgrade-container {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .reviews-container {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+
+    /*--------- INVENTORY VIEW -------- */
+    #inv-display {
+        flex-flow: row wrap;
+        justify-content: flex-start;
+    }
+
+    #inv-display h2 {
+        border-top: 3px solid black;
+        font-size: 1rem;
+    }
+
+    #inv-display li:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+    }
+
+    #inv-display li {
+        border: 1px solid #ccc;
+        display: flex;
+        margin: .5rem;
+        max-width: 200px;
+        text-align: center;
+        height: 250px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #inv-display div {
+        width: 100%;
+    }
+
+
+    /*--------- DETAILED VEHICLE VIEW -------- */
+    #container-details {
+        display: grid;
+        grid-template-columns: .25fr 1fr 1fr;
+
+    }
+
+    #thumbnail-display {
+        display: unset;
+        grid-column: 1;
+        grid-row: 1;
+        margin: 0 .5rem 0 0;
+    }
+
+    #thumbnail-header {
+        display: none;
+    }
+
+    #thumbnail-display li {
+        padding-bottom: 1rem;
+    }
+
+    #thumbnail-display img {
+        max-width: 100%;
+    }
+
+    #thumbnail-display img:hover {
+        transform: scale(3) translateX(32%);
+        transition: .2s;
+    }
+
+    #vehicle-image {
+        grid-column: 2;
+        grid-row: 1;
+        max-width: 100%;
+    }
+
+    #vehicle-image img {
+        max-width: 100%;
+    }
+
+    #vehicle-details {
+        padding: 0;
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    #vehicle-details p:not(:first-child) {
+        margin: .5rem 0 .5rem .5rem;
+        padding: .5rem;
+    }
+    
+    #vehicle-details p:first-child {
+        margin: 0 0 .5rem .5rem;
+        padding: 0 0 0 .5rem;
+    }
+
+
+    /*----------IMAGES----------*/
+    #image-display li {
+        width: 30%;
+        padding: .5rem;
+    }
+
+    
+
+    /*---------FORM-------- */
+    .form {
+        border: 1px solid black;
+        border-radius: 1rem;
+        margin: unset;
+        margin: 1rem;
+    }
+
+    /*--------- TABLE -------- */
+    #inventoryDisplay {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+
+}   /*----- End of Media Query --------*/

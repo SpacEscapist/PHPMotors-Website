@@ -1,0 +1,325 @@
+/*--------- BODY / FONTS---------*/
+body {
+    font-family: 'Space Mono', monospace;
+}
+
+.hero-cta button {
+    font-family: 'Space Mono', monospace;
+}
+
+main h1 {
+    font-size: 1.2rem;
+}
+
+main h2 {
+    font-size: 1.1rem;
+}
+
+nav ul li {
+    font-size: .8rem;
+}
+
+.upgrade-container a {
+    font-size: .9rem;
+}
+
+.reviews-container li {
+    font-size: .9rem;
+}
+
+
+/*-------- HEADER --------*/
+.header-top {
+    position: relative;
+}
+
+.account-login {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+}
+
+.account-login a {
+    font-size: .9rem;
+    text-decoration: none;
+    color: #3a3a3a
+}
+
+.account-login a:hover {
+    color: lightslategray;
+}
+
+
+/*------ NAVIGATION -------*/
+nav ul {
+    background-color: #3a3a3a;
+    padding: 1rem .2rem;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline;
+    margin-right: .4rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 1.2rem .2rem;
+}
+
+nav ul li a:hover {
+    background-color: #4c96d7;
+    color: black;
+}
+
+nav ul li.active a {
+    background-color: #4c96d7;
+    color: black; 
+}
+
+
+/*-------- MAIN --------*/
+main {
+    margin: .5rem;
+}
+
+.hero-container {
+    position: relative;
+}
+
+.hero-img {
+    width: 100%;
+}
+
+.hero-cta button {
+    background-color: #4c96d7;
+    border: 1px solid black;
+    padding: .7rem 1.5rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+
+.hero-cta p {
+    position: absolute;
+    top: 0rem;
+    left: .5rem;
+    color: #4c96d7;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+ul.reviews li {
+    padding-bottom: 1.2rem;
+}
+
+.upgrade-container {
+    display: grid;
+    max-width: 400px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5fr 1fr .5fr 1fr .5fr;
+    grid-column-gap: .5rem;
+}
+
+.col1 {
+    grid-column: 1;
+    text-align: center;
+}
+.col2 {
+    grid-column: 2;
+    text-align: center;
+}
+.row1 {
+    grid-column: span 2;
+}
+.row2 {
+    grid-row: 2;
+}
+.row3 {
+    grid-row: 3;
+    margin-top: 0rem;
+}
+.row4 {
+    grid-row: 4;
+}
+.row5 {
+    grid-row: 5;
+    margin-top: 0rem;
+}
+.grid-color {
+    display: flex;
+    background-color: #4c96d7;
+    justify-content: center;
+    align-items: center;
+}
+
+/*--------- INVENTORY VIEW -------- */
+#inv-display {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#inv-display li {
+    padding: 1.5rem 0;
+    list-style-type: none;
+}
+
+#inv-display li:not(:last-child) {
+    border-bottom: 2px solid black;
+}
+
+#inv-display li img {
+    max-width: 100%;
+}
+
+
+/*--------- DETAILED VEHICLE VIEW -------- */
+#thumbnail-display {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+#thumbnail-display img {
+    max-width: 90%;
+}
+
+#thumbnail-header {
+    margin-top: 2rem;
+}
+
+#vehicle-image img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+#vehicle-details p:not(:first-child) {
+    margin: .5rem 0 .5rem 0;
+    padding: .5rem 0 .5rem 0;
+}
+
+#vehicle-details p:first-child {
+    margin: 0 0 .5rem 0;
+}
+
+#vehicle-details p:nth-child(even) {
+    background-color: lightgrey;
+}
+
+
+/*----------IMAGES----------*/
+#image-display {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+}
+
+#image-display li {
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+    padding: .2rem;
+}
+
+
+/*---------FORM-------- */
+.form {
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: lightgrey;
+    padding: 1rem;
+    max-width: 20rem;
+    margin: 2rem auto;
+}
+
+.form input[type=text] {
+    margin-bottom: 1rem;
+}
+
+.formSubmit {
+    background-color: #4c96d7;
+    padding: .5rem 1rem;
+}
+
+.formSubmit:hover {
+    background-color: #66b2f5;
+}
+
+form.form span {
+    font-size: .7rem;
+}
+
+input:required:invalid, input:focus:invalid {
+    border-right: 5px solid red;
+}
+
+input:required:valid {
+    border-right: 5px solid green;
+}
+
+textarea:required:invalid, textarea:focus:invalid {
+    border-right: 5px solid red;
+}
+
+textarea:required:valid {
+    border-right: 5px solid green;
+}
+
+select:required:invalid, select:focus:invalid {
+    border-right: 5px solid red;
+}
+
+select:required:valid {
+    border-right: 5px solid green;
+}
+
+
+/*-------PHP----------*/
+.messageFail {
+    color: white;
+    background-color: darkred;
+    line-height: 2rem;
+    padding-left: 1rem;
+}
+
+.messagePass {
+    color: white;
+    background-color: darkgreen;
+    line-height: 2rem;
+    padding-left: 1rem;
+}
+
+.notice {
+    color: red;
+    font-style: italic;
+}
+
+
+/*------- TABLE -------*/
+#inventoryDisplay tbody td {
+    border: 1px solid;
+}
+
+#inventoryDisplay {
+    padding: 1rem 0rem;
+    font-size: .9rem;
+}
+
+#inventoryDisplay td {
+    padding: .5rem 1rem;
+}
+
+
+
+/*------- FOOTER -------*/
+footer hr {
+    color: grey;
+    border-bottom: 3px solid black;
+}
+
+footer p {
+    text-align: center;
+    font-size: .9rem;
+}
