@@ -301,7 +301,7 @@ function buildReviewForm($vehicle)
         $rf .= "<label for='screenName'>Screen Name:</label><br>";
         $rf .= "<input type='text' id='screenName' name='screenName' value='$username' readonly><br><br>";
         $rf .= "<label for='reviewText'>Review:</label><br>";
-        $rf .= "<input type='textarea' id='reviewText' name='reviewText' required><br><br>";
+        $rf .= "<textarea id='reviewText' name='reviewText' required></textarea><br><br>";
         $rf .= "<input type='hidden' id='invId' name='invId' value='$vehicleId'>";
         $rf .= "<input type='hidden' id='clientId' name='clientId' value='$userId'>";
         $rf .= "<input type='submit' class='formSubmit' value='Submit Review'>";
@@ -318,7 +318,7 @@ function buildReviewForm($vehicle)
 function buildReviewsDisplay($getUserReviews)
 {
     if (!empty($getUserReviews)) {
-        $rd = "<ul>";
+        $rd = "<ul class='reviews-vehicle-detail'>";
         foreach ($getUserReviews as $review) {
             $dateFormat = date("j F, Y", strtotime($review["reviewDate"]));
             $userFirst = ucfirst($review["clientFirstname"]);
@@ -329,6 +329,7 @@ function buildReviewsDisplay($getUserReviews)
             $rd .= "<li>";
             $rd .= "<p>$username wrote on $dateFormat:</p>";
             $rd .= "<p>$review[reviewText]</p>";
+            $rd .= "<hr>";
             $rd .= "</li>";
         }
         $rd .= "</ul>";
@@ -343,10 +344,11 @@ function buildReviewsDisplay($getUserReviews)
 // Build specific reviews display for a logged in user in admin view
 function buildSpecificClientReviews($getReviews)
 {
-    $cr = "<ul>";
+    $cr = "<ul id='specific-client-reviews'>";
     foreach ($getReviews as $reviews) {
         $cr .= '<li>';
         $cr .= "<p>$reviews[invMake] $reviews[invModel] (Reviewed on " . date("j F, Y", strtotime($reviews["reviewDate"])) . "): ";
+        $cr .= "<br>";
         $cr .= "<a href='/phpmotors/reviews?action=revEdit&reviewId=$reviews[reviewId]'>Edit</a> | <a href='/phpmotors/reviews?action=revDelete&reviewId=$reviews[reviewId]'>Delete</a></p>";
         $cr .= '</li>';
     }
@@ -361,12 +363,12 @@ function buildReviewUpdate($reviewInfo)
 {
     $ru = "<h1>Update $reviewInfo[invMake] $reviewInfo[invModel] Review</h1>";
     $ru .= "<p>Reviewed on " . date('j F, Y', strtotime($reviewInfo["reviewDate"])) . "</p>";
-    $ru .= "<form class='form' action='/phpmotors/reviews/index.php' method='POST'>";
+    $ru .= "<form class='manage-review-form' action='/phpmotors/reviews/index.php' method='POST'>";
     $ru .= "<label for='reviewText'><strong>Review Text</strong></label><br>";
-    $ru .= "<textarea rows='3' cols='25' id='reviewText' name='reviewText' required>$reviewInfo[reviewText]</textarea><br>";
-    $ru .= "<input type='submit' class='formSubmit' name='submit' value='Update Vehicle'>";
+    $ru .= "<textarea id='reviewText' name='reviewText' required>$reviewInfo[reviewText]</textarea><br>";
+    $ru .= "<input type='submit' class='formSubmit' name='submit' value='Update Review'>";
     $ru .= "<input type='hidden' name='action' value='updateReview'>";
-    $ru .= "<input type='hidden' name='reviewId' value=$reviewInfo[reviewId]";
+    $ru .= "<input type='hidden' name='reviewId' value=$reviewInfo[reviewId]>";
     $ru .= "</form>";
 
     return $ru;
@@ -379,12 +381,12 @@ function buildReviewDelete($reviewInfo)
     $rd = "<h1>Delete $reviewInfo[invMake] $reviewInfo[invModel] Review</h1>";
     $rd .= "<p>Reviewed on " . date('j F, Y', strtotime($reviewInfo["reviewDate"])) . "</p>";
     $rd .= "<p class='notice'>Deletes cannot be undone. Are you sure you want to delete this review?";
-    $rd .= "<form class='form' action='/phpmotors/reviews/index.php' method='POST'>";
+    $rd .= "<form class='manage-review-form' action='/phpmotors/reviews/index.php' method='POST'>";
     $rd .= "<p><strong>Review Text</strong></p>";
     $rd .= "<p id='delete-notice'>$reviewInfo[reviewText]</p><br>";
     $rd .= "<input type='submit' class='formSubmit' name='submit' value='Delete Vehicle'>";
     $rd .= "<input type='hidden' name='action' value='deleteReview'>";
-    $rd .= "<input type='hidden' name='reviewId' value=$reviewInfo[reviewId]";
+    $rd .= "<input type='hidden' name='reviewId' value=$reviewInfo[reviewId]>";
     $rd .= "</form>";
 
     return $rd;

@@ -80,7 +80,7 @@ switch ($action) {
         if (empty($reviewText)) {
             $message = "<p class='messageFail'>Please provide information for ALL empty form fields.</p>";
             $_SESSION['message'] = $message;
-            header("Location: /phpmotors/accounts/");
+            header("Location: /phpmotors/reviews/?action=revEdit&reviewId=" . $reviewId);
             exit;
         }
 
@@ -132,8 +132,8 @@ switch ($action) {
 
     default:
         if (isset($_SESSION["loggedin"])) {
-            include "../view/admin.php";
+            header("Location: /phpmotors/accounts/");
         } elseif (!isset($_SESSION["loggedin"])) {
-            include "../view/home.php";
+            header("Location: /phpmotors/");
         }
 }

@@ -37,11 +37,25 @@ function addReview($reviewText, $reviewDate, $invId, $clientId)
 }
 
 
+// Get reviews for a specific inventory item
+function getReviewTextForDisplay($invId)
+{
+    $db = phpmotorsConnect();
+    $sql = "SELECT * FROM reviews INNER JOIN clients ON reviews.clientId = clients.clientId WHERE invId = :invId ORDER BY reviewId DESC";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(":invId", $invId, PDO::PARAM_INT);
+    $stmt->execute();
+    $reviewTextDisplay = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $reviewTextDisplay;
+}
+
+
 // Get review information by clientId
 function getUserReviews($clientId)
 {
     $db = phpmotorsConnect();
-    $sql = "SELECT * FROM reviews INNER JOIN inventory ON reviews.invId = inventory.invId WHERE clientId = :clientId";
+    $sql = "SELECT * FROM reviews INNER JOIN inventory ON reviews.invId = inventory.invId WHERE clientId = :clientId ORDER BY reviewId DESC";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(":clientId", $clientId, PDO::PARAM_INT);
     $stmt->execute();
@@ -125,18 +139,4 @@ function deleteReview($reviewId)
 
     // Return the indication of success (rows changed)
     return $rowsChanged;
-}
-
-
-// Get reviews for a specific inventory item
-function getReviewTextForDisplay($invId)
-{
-    $db = phpmotorsConnect();
-    $sql = "SELECT * FROM reviews INNER JOIN clients ON reviews.clientId = clients.clientId WHERE invId = :invId ORDER BY reviewId DESC";
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(":invId", $invId, PDO::PARAM_INT);
-    $stmt->execute();
-    $reviewTextDisplay = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $stmt->closeCursor();
-    return $reviewTextDisplay;
 }

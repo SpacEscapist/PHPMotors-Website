@@ -44,7 +44,7 @@
                 } ?>
             </div>
 
-            <hr>
+            <hr id="vehicle-detail-hr">
 
             <h2>Customer Reviews</h2>
 
@@ -58,8 +58,6 @@
                 echo $reviewForm;
             }
             ?>
-            <br>
-            <hr>
             <br>
             <?php echo $buildReviewsDisplay; ?>
 

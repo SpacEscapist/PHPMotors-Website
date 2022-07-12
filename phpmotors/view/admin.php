@@ -59,15 +59,16 @@ if (!$_SESSION["loggedin"]) {
                 echo "<p>You have no reviews.</p>";
             }
             ?>
-            <br><br>
+            <br>
 
             <?php if ($_SESSION["clientData"]["clientLevel"] > 1) {
                 echo "<h2>Inventory Management</h2>
                 <p>Use the links below to manage the inventory</p>
                 <a href='/phpmotors/vehicles/'>Vehicle Management</a><br><br>
-                <a href='/phpmotors/uploads/'>Image Management</a>";
+                <a href='/phpmotors/uploads/'>Image Management</a>
+                <br><br>";
             }
-            ?><br><br>
+            ?>
         </main>
         <footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PHP Template for PHP Motors Website">
     <meta name="author" content="Branden Torrance">
-    <title>Modify Review | PHP Motors</title>
+    <title>Delete Review | PHP Motors</title>
 
     <!-- Stylesheets -->
     <link href="/phpmotors/css/small.css" rel="stylesheet" media="screen">
