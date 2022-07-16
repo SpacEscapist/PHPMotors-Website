@@ -384,7 +384,7 @@ function buildReviewDelete($reviewInfo)
     $rd .= "<form class='manage-review-form' action='/phpmotors/reviews/index.php' method='POST'>";
     $rd .= "<p><strong>Review Text</strong></p>";
     $rd .= "<p id='delete-notice'>$reviewInfo[reviewText]</p><br>";
-    $rd .= "<input type='submit' class='formSubmit' name='submit' value='Delete Vehicle'>";
+    $rd .= "<input type='submit' class='formSubmit' name='submit' value='Delete Review'>";
     $rd .= "<input type='hidden' name='action' value='deleteReview'>";
     $rd .= "<input type='hidden' name='reviewId' value=$reviewInfo[reviewId]>";
     $rd .= "</form>";
